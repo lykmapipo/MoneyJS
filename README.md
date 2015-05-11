@@ -306,7 +306,7 @@ expect(profit.isNegative()).to.be.false;
 expect(loss.isNegative()).to.be.true;
 
 ...
-``
+```
 
 #### `isPositive(money)`
 Check if this money instance has amount greater than zero.

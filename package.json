@@ -1,0 +1,55 @@
+{
+    "name": "MoneyJS",
+    "version": "0.1.0",
+    "description": "Nodejs library to represent monetary amounts",
+    "keywords": [
+        "money",
+        "currency",
+        "convert",
+        "coin",
+        "amount",
+        "exchange"
+    ],
+    "main": "index.js",
+    "scripts": {
+        "test": "grunt test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lykmapipo/MoneyJS.git"
+    },
+    "author": {
+        "name": "lykmapipo",
+        "email": "lallyelias87@gmail.com",
+        "url": "https://github.com/lykmapipo"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/lykmapipo/MoneyJS/issues"
+    },
+    "homepage": "https://github.com/lykmapipo/MoneyJS",
+    "contributors": [{
+        "name": "lykmapipo",
+        "github": "https://github.com/lykmapipo"
+    }],
+    "devDependencies": {
+        "async": "^0.9.0",
+        "chai": "^2.2.0",
+        "faker": "^2.1.2",
+        "grunt": "^0.4.5",
+        "grunt-contrib-jshint": "^0.11.2",
+        "grunt-contrib-watch": "^0.6.1",
+        "grunt-mocha-test": "^0.12.7",
+        "jshint-stylish": "^1.0.1",
+        "lodash": "^3.7.0",
+        "mocha": "^2.2.4"
+    },
+    "dependencies": {
+        "big.js": "^3.0.1",
+        "country-data": "0.0.19"
+    },
+    "peerDependencies": {
+        "async": "^0.9.0",
+        "lodash": "^3.7.0"
+    }
+}

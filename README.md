@@ -40,7 +40,7 @@ var price = new Money(12,Money.USD,new Date())
 ```
 
 #### `Money.ZERO`
-Return new instance of money with amount `set-ed` to zero, currency set to `Money base currency` and `time` set to current timestamp.
+Return new instance of money with amount `set-ed` to zero, currency set to  [Money base currency]() and `time` set to current timestamp.
 
 Example
 ```js
@@ -54,7 +54,7 @@ var price = Money.ZERO;
 
 
 #### `Money.ONE`
-Return new instance of money with amount `set-ed` to one, currency set to `Money base currency` and `time` set to current timestamp.
+Return new instance of money with amount `set-ed` to one, currency set to  [Money base currency]() and `time` set to current timestamp.
 
 Example
 ```js
@@ -67,7 +67,7 @@ var price = Money.ONE;
 ```
 
 #### `Money.TEN`
-Return new instance of money with amount `set-ed` to ten, currency set to `Money base currency` and `time` set to current timestamp.
+Return new instance of money with amount `set-ed` to ten, currency set to  [Money base currency]() and `time` set to current timestamp.
 
 Example
 ```js
@@ -80,7 +80,7 @@ var price = Money.TEN;
 ```
 
 #### `Money.TWENTY`
-Return new instance of money with amount `set-ed` to twenty, currency set to `Money base currency` and `time` set to current timestamp.
+Return new instance of money with amount `set-ed` to twenty, currency set to  [Money base currency]() and `time` set to current timestamp.
 
 Example
 ```js
@@ -93,7 +93,7 @@ var price = Money.TWENTY;
 ```
 
 #### `Money.FIFTY`
-Return new instance of money with amount `set-ed` to fifty, currency set to `Money base currency` and `time` set to current timestamp.
+Return new instance of money with amount `set-ed` to fifty, currency set to  [Money base currency]() and `time` set to current timestamp.
 
 Example
 ```js
@@ -106,7 +106,7 @@ var price = Money.FIFTY;
 ```
 
 #### `Money.HUNDRED`
-Return new instance of money with amount `set-ed` to hundred, currency set to `Money base currency` and `time` set to current timestamp.
+Return new instance of money with amount `set-ed` to hundred, currency set to  [Money base currency]() and `time` set to current timestamp.
 
 Example
 ```js
@@ -119,7 +119,7 @@ var price = Money.HUNDRED;
 ```
 
 #### `Money.THOUSAND`
-Return new instance of money with amount `set-ed` to thousand, currency set to `Money base currency` and `time` set to current timestamp.
+Return new instance of money with amount `set-ed` to thousand, currency set to  [Money base currency]() and `time` set to current timestamp.
 
 Example
 ```js

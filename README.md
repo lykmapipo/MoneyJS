@@ -4,7 +4,7 @@
 
 Nodejs library to represent monetary amounts.
 
-Instances of Money are immutable and each arithmetic operation will return a new instance of the money object.
+*Note: Instances of Money are immutable and each arithmetic operation will return a new instance of the money object.*
 
 ## Installation
 ```sh
@@ -13,9 +13,13 @@ $ npm install --save moneyjs
 
 ## Usage
 ```js
+//require money
 var Money = require('moneyjs');
+
+//instantiate a new money
+var price = new Money(12,Money.USD,new Date())
 ...
-//continue with money usage
+//continue with money usage see API guide
 ...
 ```
 
@@ -24,13 +28,7 @@ var Money = require('moneyjs');
 ### Instance creation
 
 #### `new Money(amount,currency,date)`
-Instantiate a new instance of money with 
-
-`amount` amount you want to set on money
-
-`currency` a currency to set on money
-
-`date` a date when this money created, if not provided default to `new Date()`
+Instantiate a new instance of money with `amount` you want to set on money, a `currency` to set on money and a `date` when this money created, if not provided will default to `new Date()`
 
 ```js
 //require money
@@ -38,6 +36,98 @@ var Money = require('moneyjs');
 
 //instantiate a new money
 var price = new Money(12,Money.USD,new Date())
+...
+```
+
+#### `Money.ZERO`
+Return new instance of money with amount `set-ed` to zero, currency set to `Money base currency` and `time` set to current timestamp.
+
+Example
+```js
+//require money
+var Money = require('moneyjs');
+
+//instantiate a new money
+var price = Money.ZERO;
+...
+```
+
+
+#### `Money.ONE`
+Return new instance of money with amount `set-ed` to one, currency set to `Money base currency` and `time` set to current timestamp.
+
+Example
+```js
+//require money
+var Money = require('moneyjs');
+
+//instantiate a new money
+var price = Money.ONE;
+...
+```
+
+#### `Money.TEN`
+Return new instance of money with amount `set-ed` to ten, currency set to `Money base currency` and `time` set to current timestamp.
+
+Example
+```js
+//require money
+var Money = require('moneyjs');
+
+//instantiate a new money
+var price = Money.TEN;
+...
+```
+
+#### `Money.TWENTY`
+Return new instance of money with amount `set-ed` to twenty, currency set to `Money base currency` and `time` set to current timestamp.
+
+Example
+```js
+//require money
+var Money = require('moneyjs');
+
+//instantiate a new money
+var price = Money.TWENTY;
+...
+```
+
+#### `Money.FIFTY`
+Return new instance of money with amount `set-ed` to fifty, currency set to `Money base currency` and `time` set to current timestamp.
+
+Example
+```js
+//require money
+var Money = require('moneyjs');
+
+//instantiate a new money
+var price = Money.FIFTY;
+...
+```
+
+#### `Money.HUNDRED`
+Return new instance of money with amount `set-ed` to hundred, currency set to `Money base currency` and `time` set to current timestamp.
+
+Example
+```js
+//require money
+var Money = require('moneyjs');
+
+//instantiate a new money
+var price = Money.HUNDRED;
+...
+```
+
+#### `Money.THOUSAND`
+Return new instance of money with amount `set-ed` to thousand, currency set to `Money base currency` and `time` set to current timestamp.
+
+Example
+```js
+//require money
+var Money = require('moneyjs');
+
+//instantiate a new money
+var price = Money.THOUSAND;
 ...
 ```
 

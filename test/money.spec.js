@@ -79,99 +79,6 @@ describe('Money', function() {
         done();
     });
 
-    it('should be able to perform scalar multiplication on money instance', function(done) {
-        var price = new Money(12, Money.USD);
-        price = price.multiplyBy(4);
-
-        expect(price.amount.toString()).to.be.equal('48');
-        expect(price.currency.code).to.be.equal('USD');
-        done();
-
-    });
-
-
-    it('should be able to perform scalar division on money instance', function(done) {
-        var price = new Money(12, Money.USD);
-        price = price.divideBy(4);
-
-        expect(price.amount.toString()).to.be.equal('3');
-        expect(price.currency.code).to.be.equal('USD');
-        done();
-
-    });
-
-
-    it('should be able to perform addition on two money instance of the same currency', function(done) {
-        var price = new Money(12, Money.USD);
-        var tax = new Money(2, Money.USD);
-        var priceAfterTax = price.plus(tax);
-
-        expect(priceAfterTax.amount.toString()).to.be.equal('14');
-        expect(price.currency.code).to.be.equal('USD');
-
-        done();
-
-    });
-
-    it('should be able to perform subtraction on two money instance of the same currency', function(done) {
-        var price = new Money(12, Money.USD);
-        var tax = new Money(2, Money.USD);
-        var netProfit = price.minus(tax);
-
-        expect(netProfit.amount.toString()).to.be.equal('10');
-        expect(netProfit.currency.code).to.be.equal('USD');
-
-        done();
-
-    });
-
-
-    it('should be able to check if one money instance is greater than the other', function(done) {
-        var price = new Money(12, Money.USD);
-        var tax = new Money(2, Money.USD);
-
-        expect(price.isGreaterThan(tax)).to.be.true;
-        expect(tax.isGreaterThan(price)).to.be.false;
-
-        done();
-    });
-
-    it('should be able to check if one money instance is less than the other', function(done) {
-        var price = new Money(12, Money.USD);
-        var tax = new Money(2, Money.USD);
-
-        expect(tax.isLessThan(price)).to.be.true;
-        expect(price.isLessThan(tax)).to.be.false;
-
-        done();
-    });
-
-    it('should be able fix money instance into fixed number of decimal places', function(done) {
-        var price = new Money(45.6, Money.USD);
-        var rent = new Money(45.6123, Money.USD);
-
-        var fixedPrice = price.toFixed();
-        var fixedRent = rent.toFixed(3);
-
-        expect(fixedPrice.amount.toString()).to.be.equal('45.6');
-        expect(fixedRent.amount.toString()).to.be.equal('45.612');
-
-        done();
-    });
-
-    it('should be able convert a money instance into specified number of significant figures', function(done) {
-        var price = new Money(45.6, Money.USD);
-        var rent = new Money(45, Money.USD);
-
-        var precisePrice = price.toPrecision();
-        var preciseRent = rent.toPrecision(1);
-
-        expect(precisePrice.amount.toString()).to.be.equal('45.6');
-        expect(preciseRent.amount.toString()).to.be.equal('50');
-
-        done();
-    });
-
     it('should be able to return string representation of money instance', function(done) {
         var price = new Money(45.6, Money.USD);
 
@@ -214,12 +121,116 @@ describe('Money', function() {
         done();
     });
 
-    it('should have a default base currency', function(done) {
-        expect(Money.BASE).to.be.equal(Money.USD);
-        done();
+
+    describe('Arithmetic Operations', function() {
+        it('should be able to perform scalar multiplication on money instance', function(done) {
+            var price = new Money(12, Money.USD);
+            price = price.multiplyBy(4);
+
+            expect(price.amount.toString()).to.be.equal('48');
+            expect(price.currency.code).to.be.equal('USD');
+            done();
+
+        });
+
+
+        it('should be able to perform scalar division on money instance', function(done) {
+            var price = new Money(12, Money.USD);
+            price = price.divideBy(4);
+
+            expect(price.amount.toString()).to.be.equal('3');
+            expect(price.currency.code).to.be.equal('USD');
+            done();
+
+        });
+
+
+        it('should be able to perform addition on two money instance of the same currency', function(done) {
+            var price = new Money(12, Money.USD);
+            var tax = new Money(2, Money.USD);
+            var priceAfterTax = price.plus(tax);
+
+            expect(priceAfterTax.amount.toString()).to.be.equal('14');
+            expect(price.currency.code).to.be.equal('USD');
+
+            done();
+
+        });
+
+        it('should be able to perform subtraction on two money instance of the same currency', function(done) {
+            var price = new Money(12, Money.USD);
+            var tax = new Money(2, Money.USD);
+            var netProfit = price.minus(tax);
+
+            expect(netProfit.amount.toString()).to.be.equal('10');
+            expect(netProfit.currency.code).to.be.equal('USD');
+
+            done();
+
+        });
     });
 
-    describe('Exchange', function() {
+
+    describe('Logical Operations', function() {
+        it('should be able to check if one money instance is greater than the other', function(done) {
+            var price = new Money(12, Money.USD);
+            var tax = new Money(2, Money.USD);
+
+            expect(price.isGreaterThan(tax)).to.be.true;
+            expect(tax.isGreaterThan(price)).to.be.false;
+
+            done();
+        });
+
+        it('should be able to check if one money instance is less than the other', function(done) {
+            var price = new Money(12, Money.USD);
+            var tax = new Money(2, Money.USD);
+
+            expect(tax.isLessThan(price)).to.be.true;
+            expect(price.isLessThan(tax)).to.be.false;
+
+            done();
+        });
+
+    });
+
+
+    describe('Precision and Significant Figures', function() {
+        it('should be able fix money instance into fixed number of decimal places', function(done) {
+            var price = new Money(45.6, Money.USD);
+            var rent = new Money(45.6123, Money.USD);
+
+            var fixedPrice = price.toFixed();
+            var fixedRent = rent.toFixed(3);
+
+            expect(fixedPrice.amount.toString()).to.be.equal('45.6');
+            expect(fixedRent.amount.toString()).to.be.equal('45.612');
+
+            done();
+        });
+
+        it('should be able convert a money instance into specified number of significant figures', function(done) {
+            var price = new Money(45.6, Money.USD);
+            var rent = new Money(45, Money.USD);
+
+            var precisePrice = price.toPrecision();
+            var preciseRent = rent.toPrecision(1);
+
+            expect(precisePrice.amount.toString()).to.be.equal('45.6');
+            expect(preciseRent.amount.toString()).to.be.equal('50');
+
+            done();
+        });
+
+    });
+
+
+    describe('Exchange or Convertion', function() {
+
+        it('should have a default base currency', function(done) {
+            expect(Money.BASE).to.be.equal(Money.USD);
+            done();
+        });
 
         it('should have ability to get exchange rates', function(done) {
             var exchangeRates = {
@@ -295,7 +306,7 @@ describe('Money', function() {
     });
 
 
-    describe('Static Helper', function() {
+    describe('Static Helpers', function() {
         it('should be able to return a new money instance with zero amount and base currency', function(done) {
             var money = Money.ZERO;
 

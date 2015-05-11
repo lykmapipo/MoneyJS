@@ -293,4 +293,71 @@ describe('Money', function() {
         });
 
     });
+
+
+    describe('Static Helper', function() {
+        it('should be able to return a new money instance with zero amount and base currency', function(done) {
+            var money = Money.ZERO;
+
+            expect(money.amount.toString()).to.equal('0');
+            expect(money.currency.code).to.equal(Money.BASE.code);
+
+            done();
+        });
+
+        it('should be able to return a new money instance with one amount and base currency', function(done) {
+            var money = Money.ONE;
+
+            expect(money.amount.toString()).to.equal('1');
+            expect(money.currency.code).to.equal(Money.BASE.code);
+
+            done();
+        });
+
+        it('should be able to return a new money instance with ten amount and base currency', function(done) {
+            var money = Money.TEN;
+
+            expect(money.amount.toString()).to.equal('10');
+            expect(money.currency.code).to.equal(Money.BASE.code);
+
+            done();
+        });
+
+        it('should be able to return a new money instance with twenty amount and base currency', function(done) {
+
+            var money = Money.TWENTY;
+
+            expect(money.amount.toString()).to.equal('20');
+            expect(money.currency.code).to.equal(Money.BASE.code);
+
+            done();
+        });
+
+        it('should be able to return a new money instance with fifty amount and base currency', function(done) {
+            var money = Money.FIFTY;
+
+            expect(money.amount.toString()).to.equal('50');
+            expect(money.currency.code).to.equal(Money.BASE.code);
+
+            done();
+        });
+
+        it('should be able to return a new money instance with hundred amount and base currency', function(done) {
+            var money = Money.HUNDRED;
+
+            expect(money.amount.toString()).to.equal('100');
+            expect(money.currency.code).to.equal(Money.BASE.code);
+
+            done();
+        });
+
+        it('should be able to return a new money instance with thousand amount and base currency', function(done) {
+            var money = Money.THOUSAND;
+
+            expect(money.amount.toString()).to.equal('1000');
+            expect(money.currency.code).to.equal(Money.BASE.code);
+
+            done();
+        });
+    });
 });

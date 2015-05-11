@@ -4,20 +4,42 @@
 
 Nodejs library to represent monetary amounts.
 
+Instances of Money are immutable and each arithmetic operation will return a new instance of the money object.
+
 ## Installation
 ```sh
-$ npm install --save MoneyJS
+$ npm install --save moneyjs
 ```
 
 ## Usage
 ```js
-var Money = require('MoneyJS');
+var Money = require('moneyjs');
 ...
 //continue with money usage
 ...
 ```
 
 ## API
+
+### Instance creation
+
+#### `new Money(amount,currency,date)`
+Instantiate a new instance of money with 
+
+`amount` amount you want to set on money
+
+`currency` a currency to set on money
+
+`date` a date when this money created, if not provided default to `new Date()`
+
+```js
+//require money
+var Money = require('moneyjs');
+
+//instantiate a new money
+var price = new Money(12,Money.USD,new Date())
+...
+```
 
 
 ## Testing

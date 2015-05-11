@@ -28,7 +28,7 @@ var price = new Money(12,Money.USD,new Date())
 ### Configuration
 
 #### `Money.BASE`
-Set a base currency to be used with `Money.USD`. Default to `USD`. Currency value to set must be obtained from `Money` static currencies helper. `Money.BASE` is heavily used in `exchanging` money instance from one currency to another.
+Set a base currency to be used with `Money`. Default to `Money.USD`. Currency value to set must be obtained from `Money` static currencies helper. `Money.BASE` is heavily used in `exchanging` money instance from one currency to another.
 
 Example
 ```js

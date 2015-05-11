@@ -31,53 +31,6 @@ describe('Money', function() {
         done();
     });
 
-    it('should be able to compare two money instance for equality', function(done) {
-        var tax = new Money(200, Money.USD);
-        var rent = new Money(1200, Money.USD);
-        var any = new Money(1200, Money.USD);
-
-        expect(tax.equals(tax)).to.be.true;
-        expect(tax.equals(rent)).to.be.false;
-        expect(tax.equals(any)).to.be.false;
-
-        expect(rent.equal(rent)).to.be.true;
-        expect(rent.equal(any)).to.be.true;
-        expect(rent.equal(tax)).to.be.false;
-
-        done();
-    });
-
-    it('should be able to check if money is zero', function(done) {
-        var tax = new Money(0, Money.USD);
-        var any = new Money(0.00, Money.USD);
-        var rent = new Money(1200, Money.USD);
-
-        expect(tax.isZero()).to.be.true;
-        expect(any.isZero()).to.be.true;
-        expect(rent.isZero()).to.be.false;
-
-        done();
-    });
-
-    it('should be able to check if money is positive value', function(done) {
-        var profit = new Money(1200, Money.USD);
-        var loss = new Money(-1200, Money.USD);
-
-        expect(profit.isPositive()).to.be.true;
-        expect(loss.isPositive()).to.be.false;
-
-        done();
-    });
-
-    it('should be able to check if money is negative value', function(done) {
-        var profit = new Money(1200, Money.USD);
-        var loss = new Money(-1200, Money.USD);
-
-        expect(profit.isNegative()).to.be.false;
-        expect(loss.isNegative()).to.be.true;
-
-        done();
-    });
 
     it('should be able to return string representation of money instance', function(done) {
         var price = new Money(45.6, Money.USD);
@@ -172,6 +125,54 @@ describe('Money', function() {
 
 
     describe('Logical Operations', function() {
+        it('should be able to compare two money instance for equality', function(done) {
+            var tax = new Money(200, Money.USD);
+            var rent = new Money(1200, Money.USD);
+            var any = new Money(1200, Money.USD);
+
+            expect(tax.equals(tax)).to.be.true;
+            expect(tax.equals(rent)).to.be.false;
+            expect(tax.equals(any)).to.be.false;
+
+            expect(rent.equal(rent)).to.be.true;
+            expect(rent.equal(any)).to.be.true;
+            expect(rent.equal(tax)).to.be.false;
+
+            done();
+        });
+
+        it('should be able to check if money is zero', function(done) {
+            var tax = new Money(0, Money.USD);
+            var any = new Money(0.00, Money.USD);
+            var rent = new Money(1200, Money.USD);
+
+            expect(tax.isZero()).to.be.true;
+            expect(any.isZero()).to.be.true;
+            expect(rent.isZero()).to.be.false;
+
+            done();
+        });
+
+        it('should be able to check if money is positive value', function(done) {
+            var profit = new Money(1200, Money.USD);
+            var loss = new Money(-1200, Money.USD);
+
+            expect(profit.isPositive()).to.be.true;
+            expect(loss.isPositive()).to.be.false;
+
+            done();
+        });
+
+        it('should be able to check if money is negative value', function(done) {
+            var profit = new Money(1200, Money.USD);
+            var loss = new Money(-1200, Money.USD);
+
+            expect(profit.isNegative()).to.be.false;
+            expect(loss.isNegative()).to.be.true;
+
+            done();
+        });
+
         it('should be able to check if one money instance is greater than the other', function(done) {
             var price = new Money(12, Money.USD);
             var tax = new Money(2, Money.USD);

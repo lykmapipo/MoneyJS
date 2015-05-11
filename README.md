@@ -219,6 +219,110 @@ price = price.minus(new Money(2, Money.USD));
 ...
 ```
 
+### Logical Operations
+
+#### `equals(money)`, `equalTo(money)`
+Check if this money instance is equal to the given money instance. It returns `boolean true` otherwise `boolean false`
+
+Example
+```js
+var Money = require('moneyjs');
+
+var tax = new Money(200, Money.USD);
+var rent = new Money(1200, Money.USD);
+var any = new Money(1200, Money.USD);
+
+expect(tax.equals(tax)).to.be.true;
+expect(tax.equals(rent)).to.be.false;
+expect(tax.equals(any)).to.be.false;
+
+expect(rent.equal(rent)).to.be.true;
+expect(rent.equal(any)).to.be.true;
+expect(rent.equal(tax)).to.be.false;
+
+...
+```
+
+#### `lessThan(money)`, `isLessThan(money)`
+Check if this money instance is less than given money instance. It returns `boolean true` if so otherwise `boolena false`
+
+Example
+```js
+var Money = require('moneyjs');
+
+var price = new Money(12, Money.USD);
+var tax = new Money(2, Money.USD);
+
+expect(tax.isLessThan(price)).to.be.true;
+expect(price.isLessThan(tax)).to.be.false;
+
+...
+```
+
+#### `greaterThan(money)`, `isGreaterThan(money)`
+Check if this money instance is less than given money instance. It returns `boolean true` if so otherwise `boolena false`
+
+Example
+```js
+var Money = require('moneyjs');
+
+var price = new Money(12, Money.USD);
+var tax = new Money(2, Money.USD);
+
+expect(price.isGreaterThan(tax)).to.be.true;
+expect(tax.isGreaterThan(price)).to.be.false;
+
+...
+```
+
+#### `isZero(money)`
+Check if this money instance has amount equal to zero.
+
+Example
+```js
+var Money = require('moneyjs');
+
+var tax = new Money(0, Money.USD);
+var any = new Money(0.00, Money.USD);
+var rent = new Money(1200, Money.USD);
+
+expect(tax.isZero()).to.be.true;
+expect(any.isZero()).to.be.true;
+expect(rent.isZero()).to.be.false;
+
+...
+```
+
+#### `isNegative(money)`
+Check if this money instance has amount which is less than zero.
+
+Example
+```js
+var Money = require('moneyjs')
+var profit = new Money(1200, Money.USD);
+var loss = new Money(-1200, Money.USD);
+
+expect(profit.isNegative()).to.be.false;
+expect(loss.isNegative()).to.be.true;
+
+...
+``
+
+#### `isPositive(money)`
+Check if this money instance has amount greater than zero.
+
+Example
+```js
+var Money = require('moneyjs');
+
+ar profit = new Money(1200, Money.USD);
+var loss = new Money(-1200, Money.USD);
+
+expect(profit.isPositive()).to.be.true;
+expect(loss.isPositive()).to.be.false;
+
+...
+```
 
 ## Testing
 * Clone this repository

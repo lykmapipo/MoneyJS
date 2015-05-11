@@ -167,6 +167,58 @@ var price = Money.THOUSAND;
 ...
 ```
 
+### Arithmetic Operations
+
+#### `multiply(multiplier)`, `multiplyBy(multiplier)`
+Perform scalar multiplication on the amount of money instance. It return new money instance holding result of operation
+
+Example
+```js
+var Money = require('moneyjs')
+
+var price = new Money(12, Money.USD);
+price = price.multiplyBy(4); //price.multiply(4);
+...
+```
+
+#### `divide(divisor)`, `divideBy(multiplier)`
+Perform scalar division on the amount of money instance. It return new money instance holding result of operation
+
+Example
+```js
+var Money = require('moneyjs')
+
+var price = new Money(12, Money.USD);
+price = price.divideBy(4); //price.divide(4);
+...
+```
+
+#### `add(money)`, `plus(money)`
+Add another money instance to this money instance. It returns new money instance holding result of operation.
+
+Example
+```js
+var Money = require('moneyjs')
+
+var price = new Money(12, Money.USD);
+price = price.plus(new Money(2, Money.USD)); 
+//price.add(new Money(2, Money.USD));
+...
+```
+
+#### `minus(money)`, `subtract(money)`
+Subtract another money instance from this money instance. It returns new money instance holding result of operation.
+
+Example
+```js
+var Money = require('moneyjs')
+
+var price = new Money(12, Money.USD);
+price = price.minus(new Money(2, Money.USD)); 
+//price.subtract(new Money(2, Money.USD));
+...
+```
+
 
 ## Testing
 * Clone this repository

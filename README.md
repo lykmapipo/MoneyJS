@@ -25,6 +25,41 @@ var price = new Money(12,Money.USD,new Date())
 
 ## API
 
+### Configuration
+
+#### `Money.BASE`
+Set a base currency to be used with `Money`. Default to `USD`. Currency value to set must be obtained from `Money` static currencies helper. `Money.BASE` is heavily used in `exchanging` money instance from one currency to another.
+
+Example
+```js
+//require money
+var Money = require('moneyjs');
+
+//set base currency
+Money.BASE = Money.USD
+...
+//continue with money usage
+```
+
+#### `Money.getExchangeRates(date,done)`
+Used to get `exchange rates` when `exchange` money instance from one currency to another. This method must be `ovverided` if exchanging operation is going to be used. `date` respresent a date when the money instance has been created. This will allow you to fetch or provide exchange rates of that exactly moment or otherwise.
+
+*Note: Returned exchange rates must be in the format `{USD:1,TZS:1900,KES:90}`;*
+
+Example of implementation
+```js
+var rates = {USD:1,TZS:1900,KES:90};
+function getExchangeRates(date,done){
+    //fetch exchange rates
+    //from API or anywhere else
+    //based on date passed
+    done(null,rates);
+}
+
+//then set it to money
+Money.getExchangeRates = getRates;
+``` 
+
 ### Instance creation
 
 #### `new Money(amount,currency,date)`

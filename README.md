@@ -194,28 +194,34 @@ price = price.divideBy(4); //price.divide(4);
 ```
 
 #### `add(money)`, `plus(money)`
-Add another money instance to this money instance. It returns new money instance holding result of operation.
+Add another money instance to this money instance. It returns new money instance holding result of operation. The returned money instance will have the currency of the money instance where plus has been invoked.
+
+*Note: Instance of money with different currencies are supported*
 
 Example
 ```js
 var Money = require('moneyjs')
 
 var price = new Money(12, Money.USD);
-price = price.plus(new Money(2, Money.USD)); 
-//price.add(new Money(2, Money.USD));
+price = price.plus(new Money(2, Money.TZS),function(error, money){
+    ...
+}); 
 ...
 ```
 
 #### `minus(money)`, `subtract(money)`
-Subtract another money instance from this money instance. It returns new money instance holding result of operation.
+Subtract another money instance from this money instance. It returns new money instance holding result of operation.The returned money instance will have the currency of the money instance where minus has been invoked.
+
+*Note: Instance of money with different currencies are supported*
 
 Example
 ```js
 var Money = require('moneyjs')
 
 var price = new Money(12, Money.USD);
-price = price.minus(new Money(2, Money.USD)); 
-//price.subtract(new Money(2, Money.USD));
+price = price.minus(new Money(2, Money.TZS),function(error,money){
+    ...    
+}); 
 ...
 ```
 

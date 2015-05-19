@@ -101,24 +101,27 @@ describe('Money', function() {
         it('should be able to perform addition on two money instance of the same currency', function(done) {
             var price = new Money(12, Money.USD);
             var tax = new Money(2, Money.USD);
-            var priceAfterTax = price.plus(tax);
+            price.plus(tax, function(error, priceAfterTax) {
 
-            expect(priceAfterTax.amount.toString()).to.be.equal('14');
-            expect(price.currency.code).to.be.equal('USD');
+                expect(priceAfterTax.amount.toString()).to.be.equal('14');
+                expect(price.currency.code).to.be.equal('USD');
 
-            done();
+                done(error, priceAfterTax);
+            });
 
         });
 
+
         it('should be able to perform subtraction on two money instance of the same currency', function(done) {
-            var price = new Money(12, Money.USD);
+            var profit = new Money(12, Money.USD);
             var tax = new Money(2, Money.USD);
-            var netProfit = price.minus(tax);
+            profit.minus(tax, function(error, netProfit) {
 
-            expect(netProfit.amount.toString()).to.be.equal('10');
-            expect(netProfit.currency.code).to.be.equal('USD');
+                expect(netProfit.amount.toString()).to.be.equal('10');
+                expect(netProfit.currency.code).to.be.equal('USD');
 
-            done();
+                done(error, netProfit);
+            });
 
         });
     });
@@ -300,6 +303,40 @@ describe('Money', function() {
                 expect(money.currency.code).to.be.equal('KES');
 
                 done(error, money);
+            });
+
+        });
+
+
+        it('should be able to perform addition on two money instance of the different currency', function(done) {
+            var price = new Money(1, Money.KES);
+            var tax = new Money(1800, Money.TZS);
+            price.plus(tax, function(error, priceAfterTax) {
+
+                expect(error).to.be.null;
+                expect(priceAfterTax).to.not.be.null;
+
+                expect(priceAfterTax.amount.toString()).to.be.equal('91');
+                expect(price.currency.code).to.be.equal('KES');
+
+                done(error, priceAfterTax);
+            });
+
+        });
+
+
+        it('should be able to perform subtraction on two money instance of the different currency', function(done) {
+            var profit = new Money(950, Money.KES);
+            var tax = new Money(1800, Money.TZS);
+            profit.minus(tax, function(error, netProfit) {
+
+                expect(error).to.be.null;
+                expect(netProfit).to.not.be.null;
+
+                expect(netProfit.amount.toString()).to.be.equal('860');
+                expect(netProfit.currency.code).to.be.equal('KES');
+
+                done(error, netProfit);
             });
 
         });

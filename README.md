@@ -34,10 +34,13 @@ profit.minus(tax,function(error,netProfit){
 });
 
 //check if net profit is zero
-nextProfit.isZero();
+netProfit.isZero();
 
 //check if net profit is negative
 netProfit.isNegative();
+
+//check if net profit is positive
+netProfit.isPositive();
 
 var expectedProfit = Money.HUNDRED;
 
@@ -53,7 +56,13 @@ netProfit.isLessThan(expectedProfit);
 //expected profit
 netProfit.isEqualTo(expectedProfit);
 
+//exchange net profit to TZS
+nextProfit.exchangeTo(Money.TZS,function(error,exchangedNetProfit){
+    ...
+});
+
 ...
+
 ```
 
 ## API

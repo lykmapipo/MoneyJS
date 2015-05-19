@@ -17,9 +17,42 @@ $ npm install --save moneyjs
 var Money = require('moneyjs');
 
 //instantiate a new money
-var price = new Money(12,Money.USD,new Date())
-...
-//continue with money usage see API guide
+var purchasePrice = new Money(12,Money.USD,new Date())
+var margin = new Money(156,Money.TZS,new Date());
+
+//compute selling price
+//by adding purchase price and margin
+purchasePrice.plus(margin, function(error,sellingPrice){
+   ... 
+});
+
+var profit = Money.THOUSAND;
+var tax = Money.FIFTY;
+//compute net profit by subtract tax from profit
+profit.minus(tax,function(error,netProfit){
+    ...
+});
+
+//check if net profit is zero
+nextProfit.isZero();
+
+//check if net profit is negative
+netProfit.isNegative();
+
+var expectedProfit = Money.HUNDRED;
+
+//check if net profit is greater than
+//expected profit
+netProfit.isGreaterThan(expectedProfit);
+
+//check if net profit is less than
+//expected profit
+netProfit.isLessThan(expectedProfit);
+
+//check if net profit is equal to
+//expected profit
+netProfit.isEqualTo(expectedProfit);
+
 ...
 ```
 
@@ -49,7 +82,12 @@ Used to get `exchange rates` when `exchange` money instance from one currency to
 
 Example of implementation
 ```js
-var rates = {USD:1,TZS:1900,KES:90};
+var rates = {
+    USD: 1,
+    TZS: 1900,
+    KES: 90
+};
+
 function getExchangeRates(date,done){
     //fetch exchange rates
     //from API or anywhere else

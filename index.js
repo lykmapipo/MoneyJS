@@ -3,7 +3,6 @@
 //dependencies
 var path = require('path');
 
-
 /**
  * @description export money type 
  * @type {Money}

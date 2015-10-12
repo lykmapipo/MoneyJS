@@ -8,7 +8,7 @@ Nodejs library to represent monetary amounts.
 
 ## Installation
 ```sh
-$ npm install --save moneyjs
+$ npm install --save async lodash moneyjs
 ```
 
 ## Usage

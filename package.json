@@ -1,6 +1,6 @@
 {
     "name": "moneyjs",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Nodejs library to represent monetary amounts",
     "keywords": [
         "money",
@@ -48,9 +48,5 @@
     "dependencies": {
         "big.js": "^3.0.1",
         "country-data": "0.0.19"
-    },
-    "peerDependencies": {
-        "async": "^0.9.0",
-        "lodash": "^3.7.0"
     }
 }

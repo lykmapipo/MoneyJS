@@ -250,11 +250,20 @@ Example
 var Money = require('moneyjs')
 
 var price = new Money(12, Money.USD);
-price = price.plus(new Money(2, Money.TZS),function(error, money){
+price.plus(new Money(2, Money.TZS),function(error, pricePlusAddition){
     ...
 }); 
 ...
 ```
+
+If `two money instances` are of same currency you may opt for synchronous `addition`
+
+Example
+```js
+var price = new Money(12, Money.USD);
+var tax = new Money(2, Money.USD);
+var priceAfterTax = price.plus(tax);
+``` 
 
 #### `minus(money)`, `subtract(money)`
 Subtract another money instance from this money instance. It returns new money instance holding result of operation.The returned money instance will have the currency of the money instance where minus has been invoked.
@@ -270,6 +279,15 @@ price = price.minus(new Money(2, Money.TZS),function(error,money){
     ...    
 }); 
 ...
+```
+
+If `two money instances` are of same currency you may opt for synchronous `subtraction`
+
+Example
+```js
+var profit = new Money(12, Money.USD);
+var tax = new Money(2, Money.USD);
+var netProfit = profit.minus(tax);
 ```
 
 ### Logical Operations

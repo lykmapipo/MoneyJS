@@ -150,6 +150,33 @@ describe('Money', function() {
         });
     });
 
+    describe('Synchronous Arithmetic Operations', function() {
+
+        it('should be able to add two money instance of the same currency synchronous', function(done) {
+            var price = new Money(12, Money.USD);
+            var tax = new Money(2, Money.USD);
+            var priceAfterTax = price.plus(tax);
+
+            expect(priceAfterTax.amount.toString()).to.be.equal('14');
+            expect(price.currency.code).to.be.equal('USD');
+
+            done(null, priceAfterTax);
+
+        });
+
+
+        it('should be able to perform subtraction on two money instance of the same currency synchronous', function(done) {
+            var profit = new Money(12, Money.USD);
+            var tax = new Money(2, Money.USD);
+            var netProfit = profit.minus(tax);
+
+            expect(netProfit.amount.toString()).to.be.equal('10');
+            expect(netProfit.currency.code).to.be.equal('USD');
+
+            done(null, netProfit);
+        });
+    });
+
 
     describe('Logical Operations', function() {
         it('should be able to compare two money instance for equality', function(done) {

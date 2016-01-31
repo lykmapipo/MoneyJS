@@ -9,8 +9,13 @@ var Money = require(path.join(__dirname, '..', 'index'));
 
 describe('Money', function() {
 
-    it('should be able a function', function(done) {
+    it('should be able a function constructor', function(done) {
         expect(Money).to.be.a('function');
+        done();
+    });
+
+    it('should have a default base currency', function(done) {
+        expect(Money.BASE).to.be.equal(Money.USD);
         done();
     });
 
@@ -230,11 +235,6 @@ describe('Money', function() {
 
 
     describe('Exchange or Convertion', function() {
-
-        it('should have a default base currency', function(done) {
-            expect(Money.BASE).to.be.equal(Money.USD);
-            done();
-        });
 
         it('should have ability to get exchange rates', function(done) {
             var exchangeRates = {

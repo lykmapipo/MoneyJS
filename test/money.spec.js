@@ -37,6 +37,25 @@ describe('Money', function() {
     });
 
 
+    it('should be able to create new instance of money with only amount', function(done) {
+        var price = new Money(1200);
+
+        expect(price.amount.toString()).to.be.equal('1200');
+        expect(price.currency.code).to.be.equal('USD');
+
+        done();
+    });
+
+    it('should be able to create new instance of money with no args', function(done) {
+        var price = new Money();
+
+        expect(price.amount.toString()).to.be.equal('0');
+        expect(price.currency.code).to.be.equal('USD');
+
+        done();
+    });
+
+
     it('should be able to return string representation of money instance', function(done) {
         var price = new Money(45.6, Money.USD);
 
